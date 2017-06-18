@@ -1,0 +1,43 @@
+#! /usr/bin/perl -w
+# Call
+#       Facts item
+# Searches for all references to this item.
+# item in quotes is a grep
+
+
+
+my $lookup = shift();
+my $AddFile=$ENV{HOME}."/Dropbox/NOTES/factsnotes.txt";
+if (! -f $AddFile) {
+	print"FACT FILE $AddFile: MISSING\n";
+	exit 1;
+}
+print"LOOKUP $AddFile, $lookup\n";
+
+my $nrec=0;
+my $str;
+open F, "$AddFile" or die"AddFile missing\n";
+
+$str=<F>;
+while (1) {
+	chomp($str);
+	$nrec++;
+	if( $str =~ /$lookup/i )  {
+		print"$str\n";
+				# CHECK THE FOLLOW ON RECORDS
+		while (<F>){
+			chomp($str=$_);
+			if( $str =~ /^[\s\t]/ ) {
+				print"$str\n";
+			}
+			else {last}
+		}
+	}
+	else  {
+		if(eof(F)){ exit }
+		else{ $str=<F> } 
+	}
+}
+close F;
+exit;
+

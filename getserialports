@@ -1,0 +1,22 @@
+#!/usr/bin/perl -w
+
+my ($dev, $portnum);
+my @portnums;
+
+$str=`ls /dev/tty.PL*`;
+print"$str";
+
+exit;
+
+opendir(D,'/dev');
+my @all = readdir(D);
+closedir(D);
+
+foreach $dev (@all) {
+	if ( $dev =~ /^tty.usb./i || $dev =~ /^tty.UC./i ) {
+		push ( @portnums, "/dev/$dev" );
+	}
+}
+foreach $d (@portnums) {print"$d\r\n"}
+
+exit 0;

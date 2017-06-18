@@ -1,0 +1,77 @@
+#! /usr/bin/perl -X
+#161231-tally a particular day
+# call: FoodTally MM dd where MM (1-12) is the month and dd(1-31) is the day.
+
+my($lenarg,$MM,$dd,$nlog,$found,$str);
+
+$lenarg=$#ARGV+1;
+# print"lenarg=$lenarg\n";
+# print"args = @ARGV\n";
+if ($lenarg != 2){
+	print"ERROR - need two arguments, MM dd\n";
+	exit 1;
+}
+$MM=$ARGV[0];  $dd=$ARGV[1];
+
+# OPEN THE FOOD FILE
+open F,"$ENV{HOME}/Dropbox/NOTES/myfoodlog.txt" or die;
+$nlog=0;
+$found=0;
+while(<F>){
+	chomp($str=$_);
+	$nlog++;
+	if(index($str,"/")>=0) {
+		print"$str\n";
+		@d=split /[\t\s]+/,$str;
+		foreach (@d){
+			$str=$_;
+			#print"\t$str\n";
+			if(index($str,"/")>=0) {
+				#print"\t\tDate\n";
+				@d=split /\//,$str;
+				#print "\t\tdate=@d\n";
+				if($MM==$d[0] && $dd==$d[1]){$found=1; last;}
+			}
+		}
+	}
+	if($found){last}
+	#print"$str\n";
+}
+
+my ($qty);
+
+# SUMMARY
+my @sum = (0,0,0,0,0,0);
+
+# FIND EACH FOOD LISTED
+while(<F>){
+	chomp($str=$_);
+	#print"$str\n";
+	@d=split /[\t]+/,$str;
+	if($#d < 0){print"end\n"; last;}
+	`Food $d[1] $d[0]`;
+	$str1=`cat /tmp/food`;
+	print"$str1\n";
+	@a=split/\t+/,$str1;
+	#foreach(@a){print"$_\n";}
+	if($#a >= 6){
+		for($i=2; $i<=7; $i++){
+			$sum[$i-2] += $a[$i];
+			#printf"%.2f -- ", $sum[$i-2];
+		}
+		#print"\n";
+	}
+	else{
+		print"Name error: $str\n";
+		exit 1;
+	}	
+}
+
+# PRINT SUMMARY
+print"  MM/dd                            cal    fat     sod     carb    sug    protein\n";
+printf "  $MM/$dd\t\t\t\t%.1f\t%.1f\t%.1f\t%.1f\t%.1f\t%.1f\n",
+	$sum[0],$sum[1],$sum[2],$sum[3],$sum[4],$sum[5],$sum[6];
+
+
+ 
+exit;

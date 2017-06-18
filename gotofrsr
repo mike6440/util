@@ -1,0 +1,13 @@
+#! /usr/bin/expect
+puts "Connect to FRSR at AMF2"
+spawn ssh -q oper@198.129.80.47
+
+expect "assword" {
+	send "Cvz6t%W2a\r";
+}
+
+expect "~/\$" {
+  send_user "connected\n"
+}
+interact
+

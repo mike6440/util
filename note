@@ -1,0 +1,42 @@
+#! /usr/bin/perl -w
+
+if ( $#ARGV < 0 ){ print"
+PROGRAM NAME:  NOTES
+  Call: notes tag
+  where
+    tag is a partial name of a file in the NOTES folder, e.g. \'prp\'
+    or tag is type grep, e.g. \"p.p\"
+";
+exit;
+}
+
+$tag = shift();
+$npath = "~/Dropbox/JOBS*";
+
+@d = `find $npath -iname "*$tag*notes*.txt" -print`;
+if( $#d > 0 ) {
+	print"multiple results\n";
+	$i=0;
+	foreach(@d){
+		chomp($fl=$d[$i]); 
+		print"     $i  $fl\n";
+		$i++;
+	}
+	print"SELECT ONE: ";
+	chomp($i = <STDIN>);
+	if( length($i) == 1){
+		chomp($fl = $d[$i]);
+	} else {exit}
+} elsif ( $#d < 0 ) {
+	print"No match\n";
+	exit 1;
+} else {
+	chomp($fl = $d[0]);
+}
+print"fl = $fl\n";
+
+$str= 'date -u "+%n========== %a %Y %m %d %H %M %S Z =================%n"';
+system "$str >> \"$fl\"";
+
+
+system "open -a /Applications/BBEdit.app \"$fl\"";

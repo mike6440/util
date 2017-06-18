@@ -1,0 +1,80 @@
+#! /usr/bin/perl -X
+#161230-find a particular food
+# call: FindFood xx.x name1 name2 ... where xx.x is the quantity in grams
+
+use Scalar::Util qw(looks_like_number);
+
+my($lenarg,$myfood,$str, $k,$w,$r,$qty);
+$qty=-1;
+
+my $lenarg=$#ARGV;
+#print"lenarg=$lenarg\n";
+
+# food only
+if($lenarg <0){
+	print"Error--need arguments.\n";
+} elsif($lenarg >= 0){
+	if (looks_like_number($ARGV[0])){
+		$qty=$ARGV[0];
+		@argv=@ARGV[1...$lenarg];
+	} else {
+		@argv=@ARGV;
+	}
+}
+print"argv= @argv\n";
+
+
+my $myfood=$ENV{HOME}."/Dropbox/NOTES/myfood.txt";
+if (! -f $myfood) {
+	print"ADDRESS FILE $myfood: MISSING\n";
+	exit 1;
+}
+
+open F, "$myfood" or die"myfood file is missing\n";
+open O,">/tmp/food";
+
+print'--------------------------------------------------------------------------
+name            g       cal     fat     sodium  carb    sugar   protein
+--------------------------------------------------------------------------
+';#'
+
+my $nfoods=0;
+
+while (<F>) {
+	chomp($str=$_);
+	$k=1;
+	foreach $w (@argv){
+		if( substr($str,0,1) =~ / / || $str !~ /$w/i) {
+			$k=0; 
+			last;
+		}
+	}
+	if( $k == 1)  {
+		$nfoods++;
+		#print"$str\n";
+		@a=split /[\t]+/, $str;
+		if($#a>6){
+			if($qty<0){$qty=$a[1];}
+			print"$a[0]\t$qty\t";
+			$r=$qty/$a[1];
+			for($i=2;$i<$#a;$i++){
+				printf"%.1f\t",$r*$a[$i];
+			}
+			print"$a[$#a]\n";
+		}
+	}
+}
+
+# PRINT TO TMP
+if($nfoods != 1){print O "-1\n"}
+else {
+	print O "$a[0]\t\t$qty\t";
+	for($i=2;$i<$#a;$i++){
+		printf O "%.1f\t",$r*$a[$i];
+	}
+}
+
+close O;
+close F;
+exit;
+

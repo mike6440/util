@@ -1,0 +1,38 @@
+#! /usr/bin/perl -w
+# 
+
+if ( $#ARGV < 0 ){ print"
+PROGRAM NAME:  $0  EDIT 20170618T190128Z
+  Call: $0 tag
+  where
+    tag is a partial name of a file in the cruise folder, e.g. \'prp\'
+    or tag is type grep, e.g. \"p.p\"
+";
+exit;
+}
+
+$tag = shift();
+$npath = "~/Dropbox/cruises-ships";
+
+@d = `find $npath -iname "*$tag*notes*.txt" -print`;
+if( $#d > 0 ) {
+	print"multiple results\n";
+	$i=0;
+	foreach(@d){
+		chomp($fl=$d[$i]); 
+		print"     $i  $fl\n";
+		$i++;
+	}
+	print"SELECT ONE: ";
+	chomp($i = <STDIN>);
+	if( length($i) == 1){
+		chomp($fl = $d[$i]);
+	} else {exit}
+} elsif ( $#d < 0 ) {
+	print"No match\n";
+	exit 1;
+} else {
+	chomp($fl = $d[0]);
+}
+print"fl = $fl\n";
+system "less $fl";

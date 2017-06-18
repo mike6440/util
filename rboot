@@ -1,0 +1,10 @@
+#!/usr/bin/expect --
+# 20170607T165048Z
+
+set pw  [lindex $argv 0]
+#set pw "r0srr0sr"
+spawn sudo shutdown -r now
+expect "assword:"
+#puts "$pw"
+send "$pw\r"
+interact
