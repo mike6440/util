@@ -1,6 +1,6 @@
 # edit 20170618T190532Z
 export PS1='\w/$ '
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/CrossPack-AVR/bin:/usr/texbin:/Users/rmr/Dropbox/unixpath:/Users/rmr/Applications/ChartDirector/lib";
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/CrossPack-AVR/bin:/usr/texbin:/Users/rmr/Dropbox/util:/Users/rmr/Applications/ChartDirector/lib";
 
 # ========================= NOTE & INFO FILES ==============================================
 		# RMRNOTES
@@ -136,7 +136,6 @@ alias gtprpsweeps="cd /Users/rmr/Dropbox/swmain/apps/prp_process_sweeps; ls"
 alias gtwork='cd ~/Dropbox/swmain/R/work'
 
 # ================== RUN APPS =====================================================
-#PATH=$PATH\:/Users/rmr/Dropbox/unixpath
 alias Phone="contacts -f'%ln   %fn    %wp   %mp   %hp   %e' "
 alias Mail='open -a Mail'
 alias Mailto='open -a Mail mailto:$1'
