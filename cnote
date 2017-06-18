@@ -2,7 +2,7 @@
 # 
 
 if ( $#ARGV < 0 ){ print"
-PROGRAM NAME:  $0  EDIT 20170618T190128Z
+PROGRAM NAME:  $0  EDIT 20170618T195223Z
   Call: $0 tag
   where
     tag is a partial name of a file in the cruise folder, e.g. \'prp\'
