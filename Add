@@ -1,0 +1,48 @@
+#! /usr/bin/perl -X
+#140313
+
+my @lookup = @ARGV;
+print"LOOKUP = @lookup\n";
+my $lenarg=$#ARGV;
+if( $lenarg < 0 ){
+	print"The Add command needs an argument.\n";
+	exit 1;
+}
+
+
+my $AddFile=$ENV{HOME}."/Dropbox/NOTES/myaddressbook.txt";
+if (! -f $AddFile) {
+	print"ADDRESS FILE $AddFile: MISSING\n";
+	exit 1;
+}
+
+my $str;
+open F, "$AddFile" or die"AddFile missing\n";
+
+$str=<F>;
+while (1) {
+	chomp($str);
+	$k=1;
+	foreach $w (@ARGV){
+		if( substr($str,0,1) =~ / / || $str !~ /$w/i) {
+			$k=0; 
+			last;
+		}
+	}
+	if( $k == 1)  {
+		print"$str\n";
+				# CHECK THE FOLLOW ON RECORDS
+		while (<F>){
+			chomp($str=$_);
+			if( substr($str,0,1) =~ / / ) {print" $str\n"}
+			else {last}
+		}
+	}
+	else  {
+		if(eof(F)){ exit }
+		else{ $str=<F> } 
+	}
+}
+close F;
+exit;
+
