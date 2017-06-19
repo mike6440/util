@@ -1,10 +1,11 @@
-# edit 20170618T190532Z
+#edit 20170619T162954Z
 export PS1='\w/$ '
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/CrossPack-AVR/bin:/usr/texbin:/Users/rmr/Dropbox/util:/Users/rmr/Applications/ChartDirector/lib";
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/CrossPack-AVR/bin:/usr/texbin:/Users/rmr/Dropbox/unixpath";
+alias D="cd /Users/rmr/Dropbox";
 
 # ========================= NOTE & INFO FILES ==============================================
-		# RMRNOTES
-InfoPath="/Users/rmr"
+        # RMRNOTES
+InfoPath="/Users/rmr/Dropbox"
 export NotePath="/Users/rmr/Dropbox/NOTES"
 MyHelp="$NotePath/myhelp";
 alias Notes="echo $NotePath; ls $NotePath"
@@ -13,14 +14,14 @@ alias Read="$NotePath/ReadNotes.sh $1"
 alias Pages="$NotePath/PagesNotes.sh $1"
 alias Key="$NotePath/KeyNotes.sh $1"
 alias Added='me $NotePath/myaddressbook.txt'
-alias Reced='me $NotePath/myrecipes.txt'
+alias Reced='vim $NotePath/myrecipes.txt'
 alias myfood="me /Users/rmr/Dropbox/NOTES/myfood.txt"
 alias myfoodlog="me /Users/rmr/Dropbox/NOTES/myfoodlog.txt"
 
 alias vimrcedit="me ~/Dropbox/aa/myvimrc"
 
 
-	# INFO PAGES
+    # INFO PAGES
 alias unzipccinfo='echo r0...; cd ~/Dropbox/NOTES; unzip ccinfo.zip'
 alias ccinfo='cd ~/Dropbox/NOTES; less ccinfo.txt';
 alias ccinfoed='me $NotePath/ccinfo.txt'
@@ -32,24 +33,24 @@ alias myalias='less ~/.bashrc'
 alias scrls='echo "CHECK FOR A SCREEN"; screen -ls'
 alias gtscr='echo "GO TO SCREEN"; screen -d -r'
 
-
-export PS1='\w/$ '
 #==========================================================
     # DEFINE THE DAQ SYSTEM: FRSR, ROSR, ISAR2,ISAR3,ISAR4,PRP,PRP2,MET1,RAD,NONE
 #==========================================================
-export DAQ="FRSR"
-#export DAQPATH="$HOME/Dropbox/swmain/apps"
+export PS1='\w/$ '
+export DAQ="ROSR"
+
+    # DROPBOX OR NORMAL ================
 [ -d $HOME/Dropbox ] \
-	&& export DAQPATH="$HOME/Dropbox/swmain/apps" \
-	|| export DAQPATH="$HOME/swmain/apps"
+    && export DAQPATH="$HOME/Dropbox/swmain/apps" \
+    || export DAQPATH="$HOME/swmain/apps"
 
     # KERMIT RC =====================
 echo "prompt k>>" > ~/.kermrc
 
     # PERL LIBRARY =============================
 [ -d $HOME/Dropbox ] \
-	&& export MYLIB=$HOME"/Dropbox/swmain/perl" \
-	|| export MYLIB=$HOME"/swmain/perl"
+    && export MYLIB=$HOME"/Dropbox/swmain/perl" \
+    || export MYLIB=$HOME"/swmain/perl"
 
 # FRSR
 if expr $DAQ = "FRSR" > /dev/null ; then
@@ -58,7 +59,7 @@ fi
 
 # ROSR
 if expr $DAQ = "ROSR" > /dev/null ; then
-test -f $DAQPATH/ROSR/tools/bashrc_rosr.txt && . $_
+test -f $DAQPATH/ROSR/sw/tools/bashrc_rosr.txt && . $_
 fi
 
 # ISAR2 
@@ -90,16 +91,16 @@ fi
 if expr $DAQ = "RAD" > /dev/null ; then 
 test -f $DAQPATH/RAD/tools/bashrc_rad.txt && . $_
 fi
-#==== END INSERTED TEXT =========================================================
+#==== END INSERTED TEXT =======================================
 
-	#==== ISAR SBD READ ============================================================================
-sbd () {
-	cd $HOME/Dropbox/swmain/apps/isar_process_sbd;
-	1_sbd_sort_emails.pl;
-	2_sbd_read.pl;
-	3_sbd_read_to_flat.pl;
-	Date;
-}
+    #==== SBD READ ============================================================================
+# sbd () {
+#   cd $HOME/Dropbox/swmain/apps/isar_process_sbd;
+#   1_sbd_sort_emails.pl;
+#   2_sbd_read.pl;
+#   3_sbd_read_to_flat.pl;
+#   Date;
+# }
 
 alias Alias="alias | less";
 
@@ -113,6 +114,7 @@ alias onacapex="Web 'file://$HOME/MIKE_PUBS/2014/OnAcapex/index.html'"
 ###############################################################
 # MAGIC
 ###############################################################
+alias MgUpdate="cd $DAQPATH/met1_process; UpdateMagicSummary.sh"
 alias magiclegtimes="cat ~/Dropbox/WWW/cruise/magic/data/MagicLegTimes.txt"
 alias magiclegtimesed="me ~/Dropbox/WWW/cruise/magic/data/MagicLegTimes.txt"
 alias magiclegsummary="Web file:///Users/rmr/Dropbox/WWW/cruise/magic/data/Magic_LegSummary.html"
@@ -131,16 +133,19 @@ alias magicdataprocessing='me $HOME/Dropbox/WWW/cruise/magic/data/OnDataProcessi
 alias gtsgp14data="cd /Volumes/hd15/20140804_sgp14_prp2_calval; ls; F"
 alias gtprpavg="cd /Users/rmr/Dropbox/swmain/apps/prp_process_avg; ls"
 alias gtprpsweeps="cd /Users/rmr/Dropbox/swmain/apps/prp_process_sweeps; ls"
+alias gtISAR3="cd /Users/rmr/Dropbox/swmain/apps/ISAR3/sw; ls"
+alias rmrinv='ls ~/Dropbox/PO\ \&\ WORK\ ORDER | less'
 
 ## =================== R COMMANDS
 alias gtwork='cd ~/Dropbox/swmain/R/work'
 
 # ================== RUN APPS =====================================================
+#PATH=$PATH\:/Users/rmr/Dropbox/unixpath
 alias Phone="contacts -f'%ln   %fn    %wp   %mp   %hp   %e' "
 alias Mail='open -a Mail'
 alias Mailto='open -a Mail mailto:$1'
 alias Web='open -a /Applications/Safari.app'
-alias Matlab='open -a /Applications/MATLAB_R2013a.app'
+alias Matlab='open -a /Applications/MATLAB_R2013b.app'
 alias Google="Web 'http://www.google.com'"
 alias Earth='open -a /Applications/Google\ Earth.app'
 alias Maps="Web 'http://maps.google.com'"
@@ -180,7 +185,7 @@ alias gtsbd="cd /Users/rmr/Dropbox/swmain/apps/isar_sbd; ls"
 alias gtspurs="cd /Users/rmr/Dropbox/swmain/apps/spurs; ls"
 alias isarinstalled='Latex $HOME/MIKE_PUBS/2014/ISAR3_installation_procedure/procedure_isar3_installation.tex'
 alias gtshiprad="cd /Users/rmr/Dropbox/swmain/apps/shiprad_process; ls"
-alias gtfrsr="cd /Users/rmr/Dropbox/swmain/apps/frsrprocess; ls"
+alias gtfrsr="cd /Users/rmr/Dropbox/swmain/apps/frsrprocess; ls -l"
 
 alias encodersheet="open -a /Applications/Numbers.app $HOME/Dropbox/instruments/encoder/encoder_sheet.numbers";
 
@@ -191,7 +196,6 @@ alias radparts="F $HOME/Dropbox/PARTS/020_RAD_MODEL_2/RAD2-PARTS"
 #========= FINDER GO TO ALIAS ===========================================
 alias F='open -a Finder.app `pwd`'
 alias Fjobs='F $InfoPath/JOBS';
-alias Fsheet='F $InfoPath/SPREADSHEETS';
 alias Recipts='open -a Finder.app ~/Dropbox/Receipts/2015'
 alias Fparts='F $HOME/Dropbox/PARTS';
 alias gtid="F $InfoPath"
@@ -235,7 +239,7 @@ alias rmrtools="ls ~/Dropbox/swmain/TOOLBOX/rmrtools"
 alias rmrtoolsed='head /Users/rmr/Dropbox/swmain/TOOLBOX/rmrtools/$1'
 alias Jobs='ls $HOME/Dropbox/JOBS'
 alias Rates='me $MyHelp/myhelp/rmrrates'
-alias Trips='ls /Users/rmr/Dropbox/TRAVEL/* | more'
+alias Trips='ls /Users/rmr/Dropbox/TRAVEL'
 alias mytime="open -a /Applications/My\ Time.app"
 alias Mywords='cd $NotePath; me Words.txt;'
 alias Myalias='less ~/.tcshrc'
@@ -248,7 +252,7 @@ alias t10="top -o CPU -n 10"
 alias Ps="ps -axrf | more"
 alias Date='date -u "+%Y %m %d %H %M %S Z"'
 Unmount () {
-	diskutil unmount /Volumes/$1
+    diskutil unmount /Volumes/$1
 }
 alias receivesheet="open -a /Applications/Microsoft\ Excel.app $HOME/Dropbox/SHIPPING-RECEIVING/shipping_receiving_sheet.xlsx"
 alias shipsheet="open -a /Applications/Numbers.app $HOME/Dropbox/SHIPPING-RECEIVING/shipping_receiving_sheet.numbers"
