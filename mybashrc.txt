@@ -2,8 +2,8 @@
 # ========================= NOTE & INFO FILES ==============================================
 		# RMRNOTES
 # HomePath="/Users/rmr"
-[ -d $HomePath ] \
-	&& export HomePath="$HomePath" \
+[ -d $HOME/Dropbox ] \
+	&& export HomePath="$HOME/Dropbox" \
 	|| export HomePath="$HOME"
 
 export NotePath="/Users/rmr/Dropbox/NOTES"
@@ -34,12 +34,54 @@ export LSCOLORS="cxfxcxdxfxegedabagacad"
 alias ls='ls -aG'
 alias ll='ls -latG'
 
+#===========================================================
+# GOTO aliases
+#===========================================================
+alias scrls='echo "CHECK FOR A SCREEN"; screen -ls'
+alias gtscr='echo "GO TO SCREEN"; screen -d -r'
+alias gtsgp14data="cd /Volumes/hd15/20140804_sgp14_prp2_calval; ls; F"
+alias gtprp500="cd /Users/rmr/Dropbox/swmain/apps/prp_process_v500;ls -lt"
+alias gtprpsweeps="cd /Users/rmr/Dropbox/swmain/apps/prp_process_sweeps; ls"
+alias gtISAR3="cd /Users/rmr/Dropbox/swmain/apps/ISAR3/sw; ls"
+alias gtinv="F $HOME/Dropbox/PO\ \&\ WORK\ ORDER;"
+alias gtwork='cd ~/Dropbox/swmain/R/work'; # R work
+alias gtid="F $InfoPath"
+alias gtinstruments="F $HOME/Dropbox/instruments"
+#       ISAR
+alias gtprp11parts="cd $HOME/Dropbox/PARTS/08*; ls; F;"
+alias gtprp2parts="cd $HOME/Dropbox/PARTS/010_PRP2_AMF2version/parts-all; ls"
+alias gtprp2proc="cd /Users/rmr/Dropbox/swmain/apps/prp2_process; ls"
+alias gtprp2sweeps="cd /Users/rmr/Dropbox/swmain/apps/prp2_process_sweeps; ls"
+alias isarparts="F $HOME/Dropbox/PARTS/005_ISAR01-04"
+alias gtisar="cd /Users/rmr/Dropbox/swmain/apps/isar_process; ls"
+alias gtisarcal="cd /Users/rmr/Dropbox/swmain/apps/isar_cal/apl; ls"
+alias gtsbd="cd /Users/rmr/Dropbox/swmain/apps/isar_sbd; ls"
+alias gtspurs="cd /Users/rmr/Dropbox/swmain/apps/spurs; ls"
+alias gtshiprad="cd /Users/rmr/Dropbox/swmain/apps/shiprad_process; ls"
+alias gtfrsr="cd /Users/rmr/Dropbox/swmain/apps/frsrprocess; ls -l"
+#	ROSR
+alias gtrosrhb="cd $HOME/Dropbox/MIKE_PUBS/2017/ROSR-HANDBOOK; Ls; F;"
+alias gtrosr="cd /Users/rmr/Dropbox/swmain/apps/rosr_process; Ls; F;"
+alias gtrosrcal="cd /Users/rmr/Dropbox/swmain/apps/rosr_cal; Ls; F;"
+
+# =========================================================
+#	LATEX TEX
+# =========================================================
+#	ROSR
+alias rosrhbed='Latex $HOME/Dropbox/MIKE_PUBS/2017/ROSR-HANDBOOK/ROSR_HANDBOOK_v9.tex'
+#	ISAR
+alias isarinstalled='Latex $HOME/MIKE_PUBS/2014/ISAR3_installation_procedure/procedure_isar3_installation.tex'
+#	PRP2
+alias prp2hbed='Latex $HOME/MIKE_PUBS/2015/150105_PRP2_HANDBOOK/PRP2_ARM_Instrument_Handbook/prp2handbook.tex'
+
+
+
 #==========================================================
     # DEFINE THE DAQ SYSTEM: FRSR, ROSR, ISAR2,ISAR3,ISAR4,PRP,PRP2,MET1,RAD,NONE
 #==========================================================
-export DAQ="NONE"
-[ -d $HomePath ] \
-	&& export DAQPATH="$HomePath/swmain/apps" \
+export DAQ="FRSR"
+[ -d $HOME/Dropbox ] \
+	&& export DAQPATH="$HOME/Dropbox/swmain/apps" \
 	|| export DAQPATH="$HOME/swmain/apps"
 
     # KERMIT RC =====================
@@ -118,16 +160,16 @@ alias webmagicdata="Web http://HomePath/WWW.rmrco.com/cruise/magic/data/index.ht
 alias magiccorrectiontable="me $HomePath/MagicData/LEG/corrections.txt"
 alias magicdataprocessing='me $HomePath/WWW/cruise/magic/data/OnDataProcessing/index.html'
 
-#####################################################################
-#== DATA PROCESSING
-# see memos m1201... for processing instructions.
-#####################################################################
-alias gtsgp14data="cd /Volumes/hd15/20140804_sgp14_prp2_calval; ls; F"
-alias gtprpavg="cd /Users/rmr/Dropbox/swmain/apps/prp_process_avg; ls"
-alias gtprpsweeps="cd /Users/rmr/Dropbox/swmain/apps/prp_process_sweeps; ls"
+###################################
+#  MANUALS / HANDBOOKS
+###################################
+aa='open -a /Applications/Adobe\ Acrobat\ DC/Adobe\ Acrobat.app ';
+alias manprp=$aa'$HOME/Dropbox/PARTS/08_PRP_07-11_MIRAI/PrpManual_Mar2002.pdf';
+alias manrosr=$aa'$HOME/Dropbox/PARTS/04-ROSR-PARTS/04.00.06_HANDBOOK/ROSR-HANDBOOK.pdf';
+alias manprp2=$aa'$HOME/Dropbox/PARTS/10_PRP2_AMF2version/10-PARTS/10.00.01_HANDBOOK/PRP2_HANDBOOK_V12.pdf';
+alias manisar=$aa'$HOME/Dropbox/PARTS/05_ISAR01-04/ISAR01-04/manuals/Manual_v10.0.pdf';
+alias manrad=$aa'$HOME/Dropbox/PARTS/20_RAD_MODEL_2/RAD_HANDBOOK/rad_manual_v9_v17c/rad_manual_v9 .pdf';
 
-## =================== R COMMANDS
-alias gtwork='cd ~/Dropbox/swmain/R/work'
 
 # ================== RUN APPS =====================================================
 alias Phone="contacts -f'%ln   %fn    %wp   %mp   %hp   %e' "
@@ -149,33 +191,15 @@ alias Sheets='Web http://google.com/sheets'
 alias prp2="Web 'file:///$HomePath/PARTS/010_PRP2_AMF2version/PRP2.html'";
 alias prp2parts="F /Users/rmr/Dropbox/PARTS/010_PRP2_AMF2version/parts-all";
 alias Fprp2='F $HomePath/PARTS/010_PRP2_AMF2version';
-alias Fprp2handbook='F $HomePath/MIKE_PUBS/2015/150105_PRP2_HANDBOOK/PRP2_ARM_Instrument_Handbook';
-alias prp2handbook='Acrobat $HomePath/MIKE_PUBS/2015/150105_PRP2_HANDBOOK/PRP2_ARM_Instrument_Handbook/prp2handbook.pdf'
-alias prp2handbooked='Latex $HomePath/MIKE_PUBS/2015/150105_PRP2_HANDBOOK/PRP2_ARM_Instrument_Handbook/prp2handbook.tex'
-alias gtprp2parts="cd $HomePath/PARTS/010_PRP2_AMF2version/parts-all; ls"
-alias gtprp2proc="cd /Users/rmr/Dropbox/swmain/apps/prp2_process; ls"
-alias gtprp2sweeps="cd /Users/rmr/Dropbox/swmain/apps/prp2_process_sweeps; ls"
 
 #========== ROSR =======================================================
 alias rosrsheet="open -a /Applications/Numbers.app $HomePath/ROSR/ROSR_SPREADSHEET_v3_mfg.numbers"
 alias rosr="Web 'file:///Users/rmr/Dropbox/WWW/prod/rosr/ROSR.html'"
 alias rosrparts="F $HomePath/RosrDev/www/ROSR_PARTS"
 alias rosrhandbooked='Latex $HomePath/MIKE_PUBS/2015/ROSR_HANDBOOK/rosr_handbook.tex'
-alias rosrhandbook='Acrobat $HomePath/MIKE_PUBS/2015/ROSR_HANDBOOK/rosr_handbook.pdf'
 
 #===== ISAR ===============================================================
 alias isarsheet="open -a /Applications/Microsoft\ Excel.app ~/Dropbox/IsarData/AndromedaLeader/ISAR_ANDROMEDALEADER.xlsx"
-alias isarparts="F $HomePath/PARTS/005_ISAR01-04"
-alias gtisar="cd /Users/rmr/Dropbox/swmain/apps/isar_process; ls"
-alias gtisarcal="cd /Users/rmr/Dropbox/swmain/apps/isar_cal/apl; ls"
-alias gtrosr="cd /Users/rmr/Dropbox/swmain/apps/rosr_process; ls"
-alias gtrosrcal="cd /Users/rmr/Dropbox/swmain/apps/rosr_cal; ls"
-alias gtsbd="cd /Users/rmr/Dropbox/swmain/apps/isar_sbd; ls"
-alias gtspurs="cd /Users/rmr/Dropbox/swmain/apps/spurs; ls"
-alias isarinstalled='Latex $HomePath/MIKE_PUBS/2014/ISAR3_installation_procedure/procedure_isar3_installation.tex'
-alias gtshiprad="cd /Users/rmr/Dropbox/swmain/apps/shiprad_process; ls"
-alias gtfrsr="cd /Users/rmr/Dropbox/swmain/apps/frsrprocess; ls"
-
 alias encodersheet="open -a /Applications/Numbers.app $HomePath/instruments/encoder/encoder_sheet.numbers";
 
 #====== RAD ============================================================
@@ -185,12 +209,8 @@ alias radparts="F $HomePath/PARTS/020_RAD_MODEL_2/RAD2-PARTS"
 #========= FINDER GO TO ALIAS ===========================================
 alias F='open -a Finder.app `pwd`'
 alias Fjobs='F $HomePath/JOBS';
-alias Recipts='open -a Finder.app ~/Dropbox/Receipts/2015'
+alias Frecipts='open -a Finder.app ~/Dropbox/Receipts/2015'
 alias Fparts='F $HomePath/PARTS';
-alias rmrtodo="open -a /Applications/Numbers.app $HomePath/ToDoRMR.numbers"
-alias jmrtodo="open -a /Applications/Numbers.app $HomePath/ToDoJMR.numbers"
-alias gtsheets="Web https://docs.google.com/spreadsheets/u/0/"
-alias gtflickr="Web https://www.flickr.com/photos/147508216@N08/albums"
 
 ## ==================== HELP FILES =========================================================
 alias mh='less $MyHelp/myhelp_general.txt'
