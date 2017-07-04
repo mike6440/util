@@ -1,10 +1,11 @@
-# edit 20170618T190532Z
-export PS1='\w/$ '
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/CrossPack-AVR/bin:/usr/texbin:/Users/rmr/Dropbox/util:/Users/rmr/Applications/ChartDirector/lib";
-
+# edit 20170704T175056Z
 # ========================= NOTE & INFO FILES ==============================================
 		# RMRNOTES
 InfoPath="/Users/rmr"
+[ -d $HOME/Dropbox ] \
+	&& export InfoPath="$HOME/Dropbox" \
+	|| export InfoPath="$HOME"
+
 export NotePath="/Users/rmr/Dropbox/NOTES"
 MyHelp="$NotePath/myhelp";
 alias Notes="echo $NotePath; ls $NotePath"
@@ -37,7 +38,6 @@ export LSCOLORS="cxfxcxdxfxegedabagacad"
 alias ls='ls -aG'
 alias ll='ls -latG'
 
-export PS1='\w/$ '
 #==========================================================
     # DEFINE THE DAQ SYSTEM: FRSR, ROSR, ISAR2,ISAR3,ISAR4,PRP,PRP2,MET1,RAD,NONE
 #==========================================================
@@ -195,10 +195,8 @@ alias radparts="F $HOME/Dropbox/PARTS/020_RAD_MODEL_2/RAD2-PARTS"
 #========= FINDER GO TO ALIAS ===========================================
 alias F='open -a Finder.app `pwd`'
 alias Fjobs='F $InfoPath/JOBS';
-alias Fsheet='F $InfoPath/SPREADSHEETS';
 alias Recipts='open -a Finder.app ~/Dropbox/Receipts/2015'
 alias Fparts='F $HOME/Dropbox/PARTS';
-alias gtid="F $InfoPath"
 alias rmrtodo="open -a /Applications/Numbers.app $HOME/Dropbox/ToDoRMR.numbers"
 alias jmrtodo="open -a /Applications/Numbers.app $HOME/Dropbox/ToDoJMR.numbers"
 alias gtsheets="Web https://docs.google.com/spreadsheets/u/0/"
