@@ -1,8 +1,8 @@
-#! /usr/bin/perl -w
+#! /usr/bin/perl -X
 
 if ( $#ARGV < 0 ){ print"
-PROGRAM NAME:  NOTES
-  Call: notes tag
+PROGRAM NAME:  NOTE
+  Call: note tag
   where
     tag is a partial name of a file in the NOTES folder, e.g. \'prp\'
     or tag is type grep, e.g. \"p.p\"
@@ -11,9 +11,11 @@ exit;
 }
 
 $tag = shift();
-$npath = "~/Dropbox/JOBS*";
+$npath = "~/Dropbox/NOTES";
 
-@d = `find $npath -iname "*$tag*notes*.txt" -print`;
+$cmd="find $npath -iname \"*$tag*\" -print";
+@d=`$cmd`;
+
 if( $#d > 0 ) {
 	print"multiple results\n";
 	$i=0;
@@ -39,4 +41,9 @@ $str= 'date -u "+%n========== %a %Y %m %d %H %M %S Z =================%n"';
 system "$str >> \"$fl\"";
 
 
-system "open -a /Applications/BBEdit.app \"$fl\"";
+#system "open -a /Applications/BBEdit.app \"$fl\"";
+
+system "vim \"$fl\"";
+
+
+

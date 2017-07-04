@@ -1,0 +1,74 @@
+Chris Fairall <chris.fairall@noaa.gov>
+Bill Fanning <wfanning@mail.uri.edu>
+
+Stian Alesandrini <salesandrini@schmidtocean.org>
+Kunio Yoneyama <yoneyamak@jamstec.go.jp>
+Carol Anne Clayson <cclayson@whoi.edu>
+Andrew Jessup <jessup@apl.washington.edu>
+"C. Chris Chickadel" <chickadel@apl.washington.edu>
+Mike Baron <mbaron@coastalenvironmental.com>
+Tim Parker <tparker@coastalenvironmental.com>
+Dan Clark <dclark@apl.washington.edu>
+Fred Best <fred.best@ssec.wisc.edu>
+Peter Minnett <pminnett@rsmas.miami.edu>
+Tom Wilson <twilson@ms.cc.sunysb.edu>
+Ken Nadeau <Ken.Nadeau@noaa.gov>
+Amanda Andrews - NOAA Federal <Amanda.J.Andrews@noaa.gov>
+Shawn Smith <smith@coaps.fsu.edu>
+Frank Bradley <Frank.Bradley@csiro.au>
+Eric Schulz <e.schulz@bom.gov.au>
+Robert Carter <robert.carter@noaa.gov>
+David Fisichella <dfisichella@whoi.edu>
+Charlie Flagg <charles.flagg@stonybrook.edu>
+John Katebini <John.Katebini@noaa.gov>
+Nicki Hickmon <nhickmon@anl.gov>
+Mike Ritsche <mtritsche@anl.gov>
+Ernie Lewis <elewis@bnl.gov>
+Ray Edwards <edwards9@optonline.net>
+Todd Irby <todd.irby@noaa.gov>
+Tim Parker <tparker@coastalenvironmental.com>
+Pat Kelly <pkelly@coastalenvironmental.com>
+Bell Shimada <ChiefET.Bell.Shimada@noaa.gov>
+dswensen@coas.oregonstate.edu
+tonya watson <ChiefST.Kaimimoana@noaa.gov>
+Richard Conway <richard.conway@noaa.gov>
+Joe Talbert <jtalbert@apl.washington.edu>
+rlaird@whoi.edu
+Miguel Izaguirre <mizaguirre@rsmas.miami.edu>
+Conner Flynn <conner.flynn@pnl.gov>
+Ernie Lewis <elewis@bnl.gov>
+Bruce Albrecht <balbrecht@rsmas.miami.edu>
+Goshka Szczodrak <goshka@rsmas.miami.edu>
+Mike Peperato <michael.peperato@noaa.gov>
+Michael Crumley <michael.a.crumley@noaa.gov>
+David Blessing <david.blessing@noaa.gov>
+Danille Power <danielle.l.power@noaa.gov>
+Josh Gunter <joshua.gunter@noaa.gov>
+Glen Allen Smith <glen.a.smith@noaa.gov>
+Alyssa Pourmonir <alyssa.m.pourmonir@noaa.gov>
+Scott Allen <scott.e.allen@noaa.gov>
+LTJG Amber Payne <amber.payne@noaa.gov>
+"Richard Park (Jamie)" <richard.j.park@noaa.gov>
+"LTjg Elizabeth R. Mackie (Libby)" <elizabeth.mackie@noaa.gov>
+Aaron Chappell <aaron.chappell@noaa.gov>
+Jim Benante <James.Benante@noaa.gov>
+John Harms <john.harms@noaa.gov>
+John Ahern <jahern@lumcon.edu>
+Jeremiah Brower <Ship.tech@bios.edu>
+Hugh Milburn <hugh.milburn@comcast.net>
+Brian King <b.king@noc.ac.uk>
+Elaine McDonagh <elm@noc.ac.uk>
+Richard Feely <Richard.A.Feely@noaa.gov>
+Howard Freeland <argodirector@outlook.com>
+Nicolas Gruber <nicolas.gruber@env.ethz.ch>
+Gregory Johnson <gregory.c.johnson@noaa.gov>
+Megan Scanderbeg <mscanderbeg@ucsd.edu>
+Toste Tanhua <ttanhua@geomar.de>
+Maciej Telszewski <m.telszewski@ioccp.org>
+Rik Wanninkhof <rik.wanninkhof@noaa.gov>
+Chris Meinig <Christian.Meinig@noaa.gov>
+Christopher Zappa <zappa@ldeo.columbia.edu>
+Jim Edson <james.edson@uconn.edu>
+David Rutan <David.A.Rutan@NASA.gov>
+Ross.Mitchell@csiro.au
+Tae Men Trarding Company <taementc@kornet.net>
