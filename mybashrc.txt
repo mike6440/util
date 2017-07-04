@@ -1,15 +1,14 @@
 # edit 20170704T175056Z
 # ========================= NOTE & INFO FILES ==============================================
 		# RMRNOTES
-InfoPath="/Users/rmr"
-[ -d $HOME/Dropbox ] \
-	&& export InfoPath="$HOME/Dropbox" \
-	|| export InfoPath="$HOME"
+# HomePath="/Users/rmr"
+[ -d $HomePath ] \
+	&& export HomePath="$HomePath" \
+	|| export HomePath="$HOME"
 
 export NotePath="/Users/rmr/Dropbox/NOTES"
 MyHelp="$NotePath/myhelp";
 alias Notes="echo $NotePath; ls $NotePath"
-#alias notes="$NotePath/MakeNotes.sh $1"
 alias Read="$NotePath/ReadNotes.sh $1"
 alias Pages="$NotePath/PagesNotes.sh $1"
 alias Key="$NotePath/KeyNotes.sh $1"
@@ -18,21 +17,18 @@ alias Reced='me $NotePath/myrecipes.txt'
 alias myfood="me /Users/rmr/Dropbox/NOTES/myfood.txt"
 alias myfoodlog="me /Users/rmr/Dropbox/NOTES/myfoodlog.txt"
 
-alias vimrcedit="me $HOME/Dropbox/swmain/vi/myvimrc"
+alias vimrcedit="me $HomePath/swmain/vi/myvimrc"
+alias Alias="alias | less";
 
 
-	# INFO PAGES
+# ccinfo
 alias unzipccinfo='echo r0...; cd ~/Dropbox/NOTES; unzip ccinfo.zip'
 alias ccinfo='cd ~/Dropbox/NOTES; less ccinfo.txt';
 alias ccinfoed='me $NotePath/ccinfo.txt'
 alias zipccinfo='echo r0...; cd ~/Dropbox/NOTES; zip -r -0 -e ccinfo.zip ccinfo.txt; rm ccinfo.txt'
-alias mysystem="system_profiler SPSoftwareDataType"
-
-alias myalias='less ~/.bashrc'
-
+# screens
 alias scrls='echo "CHECK FOR A SCREEN"; screen -ls'
 alias gtscr='echo "GO TO SCREEN"; screen -d -r'
-
 # color
 export LSCOLORS="cxfxcxdxfxegedabagacad"
 alias ls='ls -aG'
@@ -41,19 +37,16 @@ alias ll='ls -latG'
 #==========================================================
     # DEFINE THE DAQ SYSTEM: FRSR, ROSR, ISAR2,ISAR3,ISAR4,PRP,PRP2,MET1,RAD,NONE
 #==========================================================
-export DAQ="FRSR"
-#export DAQPATH="$HOME/Dropbox/swmain/apps"
-[ -d $HOME/Dropbox ] \
-	&& export DAQPATH="$HOME/Dropbox/swmain/apps" \
+export DAQ="NONE"
+[ -d $HomePath ] \
+	&& export DAQPATH="$HomePath/swmain/apps" \
 	|| export DAQPATH="$HOME/swmain/apps"
 
     # KERMIT RC =====================
 echo "prompt k>>" > ~/.kermrc
 
     # PERL LIBRARY =============================
-[ -d $HOME/Dropbox ] \
-	&& export MYLIB=$HOME"/Dropbox/swmain/perl" \
-	|| export MYLIB=$HOME"/swmain/perl"
+export MYLIB="$HomePath/swmain/perl"
 
 # FRSR
 if expr $DAQ = "FRSR" > /dev/null ; then
@@ -96,23 +89,20 @@ test -f $DAQPATH/RAD/sw/tools/bashrc_rad.txt && . $_
 fi
 #==== END INSERTED TEXT =========================================================
 
-	#==== ISAR SBD READ ============================================================================
+#==== ISAR SBD READ ============================================================================
 sbd () {
-	cd $HOME/Dropbox/swmain/apps/isar_process_sbd;
+	cd $HomePath/swmain/apps/isar_process_sbd;
 	1_sbd_sort_emails.pl;
 	2_sbd_read.pl;
 	3_sbd_read_to_flat.pl;
 	Date;
 }
 
-alias Alias="alias | less";
-
-
 ###############################################################
 # ACAPEX
 ###############################################################
-alias onacapexed="me $HOME/MIKE_PUBS/2014/OnAcapex/index.html"
-alias onacapex="Web 'file://$HOME/MIKE_PUBS/2014/OnAcapex/index.html'"
+alias onacapexed="me $HomePath/MIKE_PUBS/2014/OnAcapex/index.html"
+alias onacapex="Web 'file://$HomePath/MIKE_PUBS/2014/OnAcapex/index.html'"
 
 ###############################################################
 # MAGIC
@@ -123,10 +113,10 @@ alias magiclegsummary="Web file:///Users/rmr/Dropbox/WWW/cruise/magic/data/Magic
 alias magicondataprocessing="Web file:///Users/rmr/Dropbox/WWW/cruise/magic/data/OnDataProcessing/index.html"
 alias magicondataprocessinged="me /Users/rmr/Dropbox/WWW/cruise/magic/data/OnDataProcessing/index.html"
 alias magiclegsummaryed="me ~/Dropbox/WWW/cruise/magic/data/Magic_LegSummary.html"
-alias MagicDataEdit="me $HOME/Dropbox/WWW/cruise/magic/data/index.html"
-alias webmagicdata="Web http://Dropbox/WWW.rmrco.com/cruise/magic/data/index.html"
-alias magiccorrectiontable="me $HOME/Dropbox/MagicData/LEG/corrections.txt"
-alias magicdataprocessing='me $HOME/Dropbox/WWW/cruise/magic/data/OnDataProcessing/index.html'
+alias MagicDataEdit="me $HomePath/WWW/cruise/magic/data/index.html"
+alias webmagicdata="Web http://HomePath/WWW.rmrco.com/cruise/magic/data/index.html"
+alias magiccorrectiontable="me $HomePath/MagicData/LEG/corrections.txt"
+alias magicdataprocessing='me $HomePath/WWW/cruise/magic/data/OnDataProcessing/index.html'
 
 #####################################################################
 #== DATA PROCESSING
@@ -156,49 +146,49 @@ alias Latex='open -a /Applications/TeXShop.app'
 alias Sheets='Web http://google.com/sheets'
 
 #======== PRP2 =======================================================
-alias prp2="Web 'file:///$HOME/Dropbox/PARTS/010_PRP2_AMF2version/PRP2.html'";
+alias prp2="Web 'file:///$HomePath/PARTS/010_PRP2_AMF2version/PRP2.html'";
 alias prp2parts="F /Users/rmr/Dropbox/PARTS/010_PRP2_AMF2version/parts-all";
-alias Fprp2='F $HOME/Dropbox/PARTS/010_PRP2_AMF2version';
-alias Fprp2handbook='F $HOME/MIKE_PUBS/2015/150105_PRP2_HANDBOOK/PRP2_ARM_Instrument_Handbook';
-alias prp2handbook='Acrobat $HOME/MIKE_PUBS/2015/150105_PRP2_HANDBOOK/PRP2_ARM_Instrument_Handbook/prp2handbook.pdf'
-alias prp2handbooked='Latex $HOME/MIKE_PUBS/2015/150105_PRP2_HANDBOOK/PRP2_ARM_Instrument_Handbook/prp2handbook.tex'
-alias gtprp2parts="cd $HOME/Dropbox/PARTS/010_PRP2_AMF2version/parts-all; ls"
+alias Fprp2='F $HomePath/PARTS/010_PRP2_AMF2version';
+alias Fprp2handbook='F $HomePath/MIKE_PUBS/2015/150105_PRP2_HANDBOOK/PRP2_ARM_Instrument_Handbook';
+alias prp2handbook='Acrobat $HomePath/MIKE_PUBS/2015/150105_PRP2_HANDBOOK/PRP2_ARM_Instrument_Handbook/prp2handbook.pdf'
+alias prp2handbooked='Latex $HomePath/MIKE_PUBS/2015/150105_PRP2_HANDBOOK/PRP2_ARM_Instrument_Handbook/prp2handbook.tex'
+alias gtprp2parts="cd $HomePath/PARTS/010_PRP2_AMF2version/parts-all; ls"
 alias gtprp2proc="cd /Users/rmr/Dropbox/swmain/apps/prp2_process; ls"
 alias gtprp2sweeps="cd /Users/rmr/Dropbox/swmain/apps/prp2_process_sweeps; ls"
 
 #========== ROSR =======================================================
-alias rosrsheet="open -a /Applications/Numbers.app $HOME/Dropbox/ROSR/ROSR_SPREADSHEET_v3_mfg.numbers"
+alias rosrsheet="open -a /Applications/Numbers.app $HomePath/ROSR/ROSR_SPREADSHEET_v3_mfg.numbers"
 alias rosr="Web 'file:///Users/rmr/Dropbox/WWW/prod/rosr/ROSR.html'"
-alias rosrparts="F $HOME/Dropbox/RosrDev/www/ROSR_PARTS"
-alias rosrhandbooked='Latex $HOME/Dropbox/MIKE_PUBS/2015/ROSR_HANDBOOK/rosr_handbook.tex'
-alias rosrhandbook='Acrobat $HOME/Dropbox/MIKE_PUBS/2015/ROSR_HANDBOOK/rosr_handbook.pdf'
+alias rosrparts="F $HomePath/RosrDev/www/ROSR_PARTS"
+alias rosrhandbooked='Latex $HomePath/MIKE_PUBS/2015/ROSR_HANDBOOK/rosr_handbook.tex'
+alias rosrhandbook='Acrobat $HomePath/MIKE_PUBS/2015/ROSR_HANDBOOK/rosr_handbook.pdf'
 
 #===== ISAR ===============================================================
 alias isarsheet="open -a /Applications/Microsoft\ Excel.app ~/Dropbox/IsarData/AndromedaLeader/ISAR_ANDROMEDALEADER.xlsx"
-alias isarparts="F $HOME/Dropbox/PARTS/005_ISAR01-04"
+alias isarparts="F $HomePath/PARTS/005_ISAR01-04"
 alias gtisar="cd /Users/rmr/Dropbox/swmain/apps/isar_process; ls"
 alias gtisarcal="cd /Users/rmr/Dropbox/swmain/apps/isar_cal/apl; ls"
 alias gtrosr="cd /Users/rmr/Dropbox/swmain/apps/rosr_process; ls"
 alias gtrosrcal="cd /Users/rmr/Dropbox/swmain/apps/rosr_cal; ls"
 alias gtsbd="cd /Users/rmr/Dropbox/swmain/apps/isar_sbd; ls"
 alias gtspurs="cd /Users/rmr/Dropbox/swmain/apps/spurs; ls"
-alias isarinstalled='Latex $HOME/MIKE_PUBS/2014/ISAR3_installation_procedure/procedure_isar3_installation.tex'
+alias isarinstalled='Latex $HomePath/MIKE_PUBS/2014/ISAR3_installation_procedure/procedure_isar3_installation.tex'
 alias gtshiprad="cd /Users/rmr/Dropbox/swmain/apps/shiprad_process; ls"
 alias gtfrsr="cd /Users/rmr/Dropbox/swmain/apps/frsrprocess; ls"
 
-alias encodersheet="open -a /Applications/Numbers.app $HOME/Dropbox/instruments/encoder/encoder_sheet.numbers";
+alias encodersheet="open -a /Applications/Numbers.app $HomePath/instruments/encoder/encoder_sheet.numbers";
 
 #====== RAD ============================================================
-alias radparts="F $HOME/Dropbox/PARTS/020_RAD_MODEL_2/RAD2-PARTS"
+alias radparts="F $HomePath/PARTS/020_RAD_MODEL_2/RAD2-PARTS"
 
 
 #========= FINDER GO TO ALIAS ===========================================
 alias F='open -a Finder.app `pwd`'
-alias Fjobs='F $InfoPath/JOBS';
+alias Fjobs='F $HomePath/JOBS';
 alias Recipts='open -a Finder.app ~/Dropbox/Receipts/2015'
-alias Fparts='F $HOME/Dropbox/PARTS';
-alias rmrtodo="open -a /Applications/Numbers.app $HOME/Dropbox/ToDoRMR.numbers"
-alias jmrtodo="open -a /Applications/Numbers.app $HOME/Dropbox/ToDoJMR.numbers"
+alias Fparts='F $HomePath/PARTS';
+alias rmrtodo="open -a /Applications/Numbers.app $HomePath/ToDoRMR.numbers"
+alias jmrtodo="open -a /Applications/Numbers.app $HomePath/ToDoJMR.numbers"
 alias gtsheets="Web https://docs.google.com/spreadsheets/u/0/"
 alias gtflickr="Web https://www.flickr.com/photos/147508216@N08/albums"
 
@@ -219,7 +209,7 @@ alias myhealth='less $NotePath/myhealthnotes.txt'
 alias myhealthed='me $NotePath/myhealthnotes.txt'
 
 # ==================== EDIT HELP FILES ========================================================
-alias rcedit='me ~/.bashrc'
+alias rcedit='me $HomePath/util/mybashrc.txt'
 alias mhed='me $MyHelp/myhelp_general.txt'
 alias mhed='me $MyHelp/myhelp_general.txt'
 alias mhhed='me $MyHelp/myhelp_html.txt'
@@ -235,7 +225,7 @@ alias mhtexed='me $MyHelp/myhelp_tex.txt'
 alias ll='ls -ltF'
 alias rmrtools="ls ~/Dropbox/swmain/TOOLBOX/rmrtools"
 alias rmrtoolsed='head /Users/rmr/Dropbox/swmain/TOOLBOX/rmrtools/$1'
-alias Jobs='ls $HOME/Dropbox/JOBS'
+alias Jobs='ls $HomePath/JOBS'
 alias Rates='me $MyHelp/myhelp/rmrrates'
 alias Trips='ls /Users/rmr/Dropbox/TRAVEL/* | more'
 alias mytime="open -a /Applications/My\ Time.app"
@@ -252,8 +242,8 @@ alias Date='date -u "+%Y %m %d %H %M %S Z"'
 Unmount () {
 	diskutil unmount /Volumes/$1
 }
-alias receivesheet="open -a /Applications/Microsoft\ Excel.app $HOME/Dropbox/SHIPPING-RECEIVING/shipping_receiving_sheet.xlsx"
-alias shipsheet="open -a /Applications/Numbers.app $HOME/Dropbox/SHIPPING-RECEIVING/shipping_receiving_sheet.numbers"
-alias mycashflow="open -a /Applications/Numbers.app $HOME/FINANCE/mycashflow.numbers"
+alias receivesheet="open -a /Applications/Microsoft\ Excel.app $HomePath/SHIPPING-RECEIVING/shipping_receiving_sheet.xlsx"
+alias shipsheet="open -a /Applications/Numbers.app $HomePath/SHIPPING-RECEIVING/shipping_receiving_sheet.numbers"
+alias mycashflow="open -a /Applications/Numbers.app $HomePath/FINANCE/mycashflow.numbers"
 alias mylib="echo $MYLIB"
 alias Whoami="system_profiler SPSoftwareDataType"
