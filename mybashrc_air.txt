@@ -1,0 +1,5 @@
+# edit 20170618T190532Z
+export PS1='\w/$ '
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/CrossPack-AVR/bin:/usr/texbin:/Users/rmr/Dropbox/util:/Users/rmr/Applications/ChartDirector/lib";
+test -f $HOME/Dropbox/util/mybashrc.txt && . $_
+
