@@ -79,7 +79,7 @@ alias prp2hbed='Latex $HOME/MIKE_PUBS/2015/150105_PRP2_HANDBOOK/PRP2_ARM_Instrum
 #==========================================================
     # DEFINE THE DAQ SYSTEM: FRSR, ROSR, ISAR2,ISAR3,ISAR4,PRP,PRP2,MET1,RAD,NONE
 #==========================================================
-export DAQ="FRSR"
+export DAQ="NONE"
 [ -d $HOME/Dropbox ] \
 	&& export DAQPATH="$HOME/Dropbox/swmain/apps" \
 	|| export DAQPATH="$HOME/swmain/apps"
@@ -176,7 +176,12 @@ alias Phone="contacts -f'%ln   %fn    %wp   %mp   %hp   %e' "
 alias Mail='open -a Mail'
 alias Mailto='open -a Mail mailto:$1'
 alias Web='open -a /Applications/Safari.app'
-alias Matlab='open -a /Applications/MATLAB_R2013a.app'
+  #  MATLAB
+#[ -f /Applications/MATLAB_R2013a.app ] \
+#	&& open -a /Applications/MATLAB_R2013a.app \
+#	|| open -a /Applications/MATLAB_R2013b.app
+alias Matlab="open -a `find /Applications -maxdepth 1 -name MATLAB*.app`"
+#alias Matlab='open -a /Applications/MATLAB_R2013a.app'
 alias Google="Web 'http://www.google.com'"
 alias Earth='open -a /Applications/Google\ Earth.app'
 alias Maps="Web 'http://maps.google.com'"
